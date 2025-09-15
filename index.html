@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>10 ICT SW#2</title>
+    <style>
+        body {
+            background: #ffe4f7;
+            font-family: 'Poppins', 'Arial', sans-serif;
+        }
+        .navbar, .bg-primary {
+            background: linear-gradient(90deg, #ff69b4 0%, #ffb6c1 100%);
+            border-bottom: 3px solid #ff69b4;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #fff !important;
+            text-shadow: 1px 1px 4px #ff69b4;
+        }
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px #ffb6c1a0;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        .card-header {
+            background: linear-gradient(90deg, #ffb6c1 0%, #ffe4f7 100%);
+            color: #ff1493 !important;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 1rem 1rem 0 0 !important;
+            border: none;
+        }
+        .card-body {
+            background: #fff0fa;
+            color: #d72660;
+            font-size: 1.05rem;
+        }
+        .section-title {
+            color: #ff69b4;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .btn-success {
+            background: linear-gradient(90deg, #ff69b4 0%, #ffb6c1 100%);
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            box-shadow: 0 2px 8px #ffb6c1a0;
+        }
+        .btn-success:hover {
+            background: #ff1493;
+            color: #fff;
+        }
+        .alert-info, .alert-secondary, .alert-warning, .alert-success, .alert-danger, .alert-dark {
+            background: #ffe4f7;
+            color: #d72660;
+            border: 1px solid #ffb6c1;
+            border-radius: 0.75rem;
+            font-weight: 500;
+        }
+        img {
+            border: 2px solid #ffb6c1;
+            background: #fff0fa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Lorr de Lorran</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-center mb-4" style="background: linear-gradient(90deg, #ffb6c1 0%, #ffe4f7 100%); border: none;">
+                    <div class="card-body rounded" style="background: #fff0fa; color: #d72660;">
+                        <h1 id="storeName" style="font-weight: bold; color: #ff69b4; text-shadow: 1px 1px 4px #ffb6c1;"></h1>
+                        <p id="ownerName" style="font-size: 1.2rem;"></p>
+                        <p id="yearFounded" style="font-size: 1.1rem;"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">Popular Item Price</div>
+                            <div class="card-body">
+                                <div id="output1"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header bg-secondary text-white">Top 3 Picks!</div>
+                            <div class="card-body">
+                                <ul id="product_list" class="list-unstyled"></ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header bg-warning text-dark">Delivery Info</div>
+                            <div class="card-body">
+                                <div id="output3"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header bg-success text-white">Business Hours</div>
+                            <div class="card-body">
+                                <div id="output4"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-info text-white">Menu Prices</div>
+                            <div class="card-body">
+                                <ul id="menu_list" class="list-unstyled"></ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header bg-danger text-white">Common Allergens</div>
+                            <div class="card-body">
+                                <div id="output6"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header bg-dark text-white">Tax Rate</div>
+                            <div class="card-body">
+                                <div id="output7"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-title text-center">Quick Calculator</h3>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row g-2 align-items-center">
+                            <div class="col">
+                                <input type="text" id="input1" class="form-control" placeholder="Enter a number">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="input2" class="form-control" placeholder="Enter a number">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-success" py-click="adding_numbers">Solve</button>
+                            </div>
+                        </div>
+                        <div id="output_calc" class="alert alert-info mt-3"></div>
+                    </div>
+                </div>
+                <div id="output2" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+    <script type="py" src="main.py"></script>
+    <footer class="container mt-5">
+        <div class="card p-3" style="background: #fff0fa; color: #d72660;">
+            <h5>References</h5>
+            <ul>
+                <li>PyScript: <a href="https://pyscript.net/" target="_blank">https://pyscript.net/</a></li>
+                <li>Bootstrap: <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></li>
+                <li>Google Fonts (Poppins): <a href="https://fonts.google.com/specimen/Poppins" target="_blank">https://fonts.google.com/specimen/Poppins</a></li>
+                <li>Python Official Documentation: <a href="https://docs.python.org/3/tutorial/datastructures.html" target="_blank">https://docs.python.org/3/tutorial/datastructures.html</a></li>
+                <li>Placeholder Images: <a href="https://via.placeholder.com/" target="_blank">https://via.placeholder.com/</a></li>
+                <li>Bing Images: <a href="https://www.bing.com/images" target="_blank">https://www.bing.com/images</a></li>
+                <li>The Spruce Eats: <a href="https://www.thespruceeats.com/" target="_blank">https://www.thespruceeats.com/</a></li>
+                # hi maam. i got tired and it was past 5 pm so i was getting super anxious too so i think there's still alot to improve on and in all honesty i relaly need a lot of help and i cant really see the board well sadly so like im severely cooked and i got help from a ton of references just to get this done.. thank you maam!!
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
