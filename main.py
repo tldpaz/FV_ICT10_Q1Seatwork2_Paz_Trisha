@@ -1,7 +1,6 @@
 # This code uses PyScript (https://pyscript.net/) for Python in the browser.
 # Bootstrap CSS framework is used for styling (https://getbootstrap.com/).
 # Google Fonts (Poppins) is used for typography (https://fonts.google.com/specimen/Poppins).
-# Placeholder images from Bing and The Spruce Eats.
 # Python dictionary/list syntax from official Python docs (https://docs.python.org/3/tutorial/datastructures.html).
 # PyScript display/document usage from PyScript documentation (https://docs.pyscript.net/latest/reference/display.html).
 # HTML/CSS structure inspired by Bootstrap documentation and examples.
@@ -86,6 +85,6 @@ document.getElementById("menu_list").innerHTML = menu_list_html
 # - Bootstrap: https://getbootstrap.com/
 # - Google Fonts (Poppins): https://fonts.google.com/specimen/Poppins
 # - Python official documentation: https://docs.python.org/3/tutorial/datastructures.html
-# - Placeholder images: https://via.placeholder.com/
 # - Bing Images: https://www.bing.com/images
+
 # - The Spruce Eats: https://www.thespruceeats.com/
